@@ -62,6 +62,24 @@ namespace Algorithms.API.Services
             return elements;
         }
 
+        public List<int> selectionSort(DataSet listForSorting)
+        {
+            List<int> elements = listForSorting.values;
+            int elementsCount = listForSorting.values.Count;
+
+            for (int i = 0; i < elementsCount - 1; i++)
+            {
+                int min_idx = i;
+                for (int j = i + 1; j < elementsCount; j++)
+                    if (elements[j] < elements[min_idx])
+                        min_idx = j;
+
+                int temp = elements[min_idx];
+                elements[min_idx] = elements[i];
+                elements[i] = temp;
+            }
+            return elements;
+        }
 
 
 

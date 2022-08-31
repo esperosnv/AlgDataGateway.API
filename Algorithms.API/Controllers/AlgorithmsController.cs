@@ -54,5 +54,12 @@ namespace Algorithms.API.Controllers
             return Ok(dataSetResponse);
         }
 
+        [HttpPost("SelectionSort")]
+        public async Task<ActionResult<DataSetResponse>> sortingBySelectionSortAlgorithm([FromBody] DataSet unsortedList)
+        {
+            DataSetResponse dataSetResponse = _algorithmsImplementation.getDataSetResponseFromAlgorythm(_algorithmsImplementation.selectionSort, unsortedList);
+            return Ok(dataSetResponse);
+        }
+
     }
 }
