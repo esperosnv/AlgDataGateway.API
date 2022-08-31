@@ -7,6 +7,8 @@ namespace Algorithms.API.Services
         List<int> bubbleSort(DataSet listForSorting);
         List<int> insertionSort(DataSet listForSorting);
         List<int> mergeSort(DataSet listForSorting);
+        List<int> quickSort(DataSet listForSorting);
+
 
 
 

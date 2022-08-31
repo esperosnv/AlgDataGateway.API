@@ -10,11 +10,11 @@ namespace Algorithms.API.Controllers
     public class AlgorithmsController : ControllerBase
     {
 
-        private readonly IAlgorythmsImplementation _algorythmsImplementation;
+        private readonly IAlgorythmsImplementation _algorithmsImplementation;
 
         public AlgorithmsController(IAlgorythmsImplementation algorythmsImplementation)
         {
-            _algorythmsImplementation = algorythmsImplementation;
+            _algorithmsImplementation = algorythmsImplementation;
         }
 
 
@@ -25,7 +25,7 @@ namespace Algorithms.API.Controllers
         [HttpPost("BubbleSort")]
         public async Task<ActionResult<DataSetResponse>> sortingByBubbleSortAlgorithm([FromBody] DataSet unsortedList)
         {
-            DataSetResponse dataSetResponse = _algorythmsImplementation.getDataSetResponseFromAlgorythm(_algorythmsImplementation.bubbleSort, unsortedList);
+            DataSetResponse dataSetResponse = _algorithmsImplementation.getDataSetResponseFromAlgorythm(_algorithmsImplementation.bubbleSort, unsortedList);
             return Ok(dataSetResponse);
         }
 
@@ -36,14 +36,21 @@ namespace Algorithms.API.Controllers
         [HttpPost("InsertionSort")]
         public async Task<ActionResult<DataSetResponse>> sortingByInsertionSortAlgorithm([FromBody] DataSet unsortedList)
         {
-            DataSetResponse dataSetResponse = _algorythmsImplementation.getDataSetResponseFromAlgorythm(_algorythmsImplementation.insertionSort, unsortedList);
+            DataSetResponse dataSetResponse = _algorithmsImplementation.getDataSetResponseFromAlgorythm(_algorithmsImplementation.insertionSort, unsortedList);
             return Ok(dataSetResponse);
         }
 
         [HttpPost("MergeSort")]
         public async Task<ActionResult<DataSetResponse>> sortingByMergeSortAlgorithm([FromBody] DataSet unsortedList)
         {
-            DataSetResponse dataSetResponse = _algorythmsImplementation.getDataSetResponseFromAlgorythm(_algorythmsImplementation.mergeSort, unsortedList);
+            DataSetResponse dataSetResponse = _algorithmsImplementation.getDataSetResponseFromAlgorythm(_algorithmsImplementation.mergeSort, unsortedList);
+            return Ok(dataSetResponse);
+        }
+
+        [HttpPost("QuickSort")]
+        public async Task<ActionResult<DataSetResponse>> sortingByQuickSortAlgorithm([FromBody] DataSet unsortedList)
+        {
+            DataSetResponse dataSetResponse = _algorithmsImplementation.getDataSetResponseFromAlgorythm(_algorithmsImplementation.mergeSort, unsortedList);
             return Ok(dataSetResponse);
         }
 
