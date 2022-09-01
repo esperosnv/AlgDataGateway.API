@@ -1,4 +1,4 @@
-﻿using Algorithms.API.Models;
+﻿using DataModels;
 using System.Diagnostics;
 
 namespace Algorithms.API.Services
@@ -81,19 +81,11 @@ namespace Algorithms.API.Services
             return elements;
         }
 
-
-
-
-
-
-
-
         public DataSetResponse getDataSetResponseFromAlgorythm(Func<DataSet, List<int>> sortedAlgorythm, DataSet listForSorting)
         {
             Stopwatch sw = new Stopwatch();
             sw.Start();
             List<int> sortedList = sortedAlgorythm(listForSorting);
-            //Thread.Sleep(10);
             sw.Stop();
             DataSetResponse dataSetResponse = new DataSetResponse();
             dataSetResponse.sortedValue = sortedList;

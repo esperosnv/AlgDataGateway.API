@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlgDataAPI", "AlgDataAPI\Al
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataStructure.API", "DataStructure.API\DataStructure.API.csproj", "{F05F6487-D4DE-4083-B90C-CC28A786AD48}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms.API", "Algorithms.API\Algorithms.API.csproj", "{CB6ECF0A-44CF-484D-A7D9-A1E12C7906D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Algorithms.API", "Algorithms.API\Algorithms.API.csproj", "{CB6ECF0A-44CF-484D-A7D9-A1E12C7906D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataModels", "DataModels\DataModels.csproj", "{A14F2BA7-BD3D-42E6-B337-31E1EDDF6124}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{CB6ECF0A-44CF-484D-A7D9-A1E12C7906D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CB6ECF0A-44CF-484D-A7D9-A1E12C7906D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CB6ECF0A-44CF-484D-A7D9-A1E12C7906D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A14F2BA7-BD3D-42E6-B337-31E1EDDF6124}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A14F2BA7-BD3D-42E6-B337-31E1EDDF6124}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A14F2BA7-BD3D-42E6-B337-31E1EDDF6124}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A14F2BA7-BD3D-42E6-B337-31E1EDDF6124}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

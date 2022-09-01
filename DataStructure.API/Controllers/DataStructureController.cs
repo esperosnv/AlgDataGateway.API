@@ -3,7 +3,7 @@ using DataStructure.API.Services;
 
 namespace DataStructure.API.Controllers
 {
-    [Route("api/dataStructures")]
+    [Route("DataStructures")]
     [ApiController]
     public class DataStructureController : ControllerBase
     {

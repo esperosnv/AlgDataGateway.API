@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Algorithms.API.Models
+namespace DataModels
 {
     public class DataSetResponse
     {

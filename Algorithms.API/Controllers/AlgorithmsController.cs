@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Algorithms.API.Services;
-using Algorithms.API.Models;
+using DataModels;
 
 namespace Algorithms.API.Controllers
 {
 
-    [Route("api/Algorithms")]
+    [Route("Algorithms")]
     [ApiController]
     public class AlgorithmsController : ControllerBase
     {

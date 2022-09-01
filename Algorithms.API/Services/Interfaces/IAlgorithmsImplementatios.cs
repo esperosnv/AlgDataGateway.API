@@ -1,4 +1,4 @@
-﻿using Algorithms.API.Models;
+﻿using DataModels;
 
 namespace Algorithms.API.Services
 {
@@ -9,9 +9,6 @@ namespace Algorithms.API.Services
         List<int> mergeSort(DataSet listForSorting);
         List<int> quickSort(DataSet listForSorting);
         List<int> selectionSort(DataSet listForSorting);
-
-
-
 
 
         DataSetResponse getDataSetResponseFromAlgorythm(Func<DataSet, List<int>> sortedAlgorythm, DataSet listForSorting);
