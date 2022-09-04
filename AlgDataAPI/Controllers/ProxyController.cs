@@ -20,12 +20,12 @@ namespace AlgDataAPI.Controllers
         public async Task<ActionResult<DataSetResponse>> Algorithms([FromBody] DataSet listInt, [FromRoute] string algorithmName)
         {
             var jsonString = JsonConvert.SerializeObject(listInt);
-            return await ProxyTo($"http://localhost:5230/Algorithms/{algorithmName}", jsonString);
+            return await ProxyTo($"http://algorithms.api/Algorithms/{algorithmName}", jsonString);
         }
 
         [HttpGet("{dataStructureName}")]
         public async Task<IActionResult> DataStructures([FromRoute] string dataStructureName)
-            => await ProxyTo($"http://localhost:5081/DataStructures/{dataStructureName}");
+            => await ProxyTo($"http://datastructure.api/DataStructures/{dataStructureName}");
 
 
 
