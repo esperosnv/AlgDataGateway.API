@@ -1,4 +1,5 @@
 using Algorithms.API.Services;
+using Algorithms.API.RabbitMQ;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,10 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IAlgorythmsImplementation, AlgorithmsImplementation>();
+builder.Services.AddScoped<IRabbitMqService, RabbitMqService>();
+builder.Services.AddHostedService<RabbitMqListener>();
+
+
 
 
 var app = builder.Build();

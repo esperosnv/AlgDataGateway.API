@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Algorithms.API.Services;
 using DataModels;
+using Algorithms.API.RabbitMQ;
+
 
 namespace Algorithms.API.Controllers
 {
@@ -11,17 +13,33 @@ namespace Algorithms.API.Controllers
     {
 
         private readonly IAlgorythmsImplementation _algorithmsImplementation;
+        private readonly IRabbitMqService _mqService;
 
-        public AlgorithmsController(IAlgorythmsImplementation algorythmsImplementation)
+        public AlgorithmsController(IAlgorythmsImplementation algorythmsImplementation, IRabbitMqService mqService)
         {
             _algorithmsImplementation = algorythmsImplementation;
+            _mqService = mqService;
+        }
+
+        /// <summary>
+        /// Get sorted list of integers  
+        /// </summary> 
+
+        [HttpPost("Sequence")]
+        public async Task<ActionResult> calculateSequence([FromBody] DataSet unsortedList)
+        {
+            DataSetResponse dataSetResponse = _algorithmsImplementation.getDataSetResponseFromAlgorythm(_algorithmsImplementation.bubbleSort, unsortedList);
+
+            _mqService.SendMessage(string.Join(" ", dataSetResponse.sortedValue)); 
+
+            return Ok("Сообщение отправлено");
         }
 
 
         /// <summary>
         /// Get sorted list of integers by bubble sort algorithm 
         /// </summary> 
-         
+
         [HttpPost("BubbleSort")]
         public async Task<ActionResult<DataSetResponse>> sortingByBubbleSortAlgorithm([FromBody] DataSet unsortedList)
         {
