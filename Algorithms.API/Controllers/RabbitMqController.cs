@@ -1,6 +1,9 @@
 ﻿using Algorithms.API.RabbitMQ;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
+using Algorithms.API.Services;
+using DataModels;
 
 namespace Algorithms.API.Controllers
 {
@@ -17,9 +20,9 @@ namespace Algorithms.API.Controllers
 
 		[Route("[action]/{message}")]
 		[HttpGet]
-		public IActionResult SendMessage(string message)
+		public IActionResult SendMessage(DataSetResponse message)
 		{
-			_mqService.SendMessage(message);
+			_mqService.SendMessage<DataSetResponse>(message);
 
 			return Ok("Сообщение отправлено");
 		}

@@ -30,7 +30,7 @@ namespace Algorithms.API.Controllers
         {
             DataSetResponse dataSetResponse = _algorithmsImplementation.getDataSetResponseFromAlgorythm(_algorithmsImplementation.bubbleSort, unsortedList);
 
-            _mqService.SendMessage(string.Join(" ", dataSetResponse.sortedValue)); 
+            _mqService.SendMessage(dataSetResponse); 
 
             return Ok("Сообщение отправлено");
         }
