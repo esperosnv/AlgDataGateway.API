@@ -28,11 +28,11 @@ namespace Algorithms.API.Controllers
         [HttpPost("Sequence")]
         public async Task<ActionResult> calculateSequence([FromBody] DataSet unsortedList)
         {
+            _mqService.SendMessage(unsortedList.values);
+
             DataSetResponse dataSetResponse = _algorithmsImplementation.getDataSetResponseFromAlgorythm(_algorithmsImplementation.bubbleSort, unsortedList);
 
-            _mqService.SendMessage(dataSetResponse); 
-
-            return Ok("Сообщение отправлено");
+            return Ok("Message send");
         }
 
 
