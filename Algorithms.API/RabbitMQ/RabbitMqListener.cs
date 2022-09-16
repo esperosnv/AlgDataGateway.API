@@ -18,12 +18,11 @@ namespace Algorithms.API.RabbitMQ
 
 		public RabbitMqListener()
 		{
-			var factory = new ConnectionFactory { HostName = "localhost" };
+			var factory = new ConnectionFactory { HostName = "rabbitmq" };
 			_connection = factory.CreateConnection();
 			_channel = _connection.CreateModel();
 			_channel.ExchangeDeclare(exchange: "TestExchange", type: ExchangeType.Direct);
 			_queueName = _channel.QueueDeclare().QueueName;
-			//_channel.QueueDeclare(queue: "MyQueueReceive", durable: false, exclusive: false, autoDelete: false, arguments: null);
 			_channel.QueueBind(queue: _queueName, exchange: "TestExchange", routingKey: "receive");
 		}
 
@@ -35,13 +34,11 @@ namespace Algorithms.API.RabbitMQ
 			consumer.Received += (ch, ea) =>
 			{
 				var content = Encoding.UTF8.GetString(ea.Body.ToArray());
-			Debug.WriteLine($"receive message: {content}");
-
+				Console.WriteLine($"AlgorithmAPI: Received message from HostedService: {content}");
 				_channel.BasicAck(ea.DeliveryTag, false);
 			};
 
 			_channel.BasicConsume(_queueName, false, consumer);
-
 			return Task.CompletedTask;
 		}
 

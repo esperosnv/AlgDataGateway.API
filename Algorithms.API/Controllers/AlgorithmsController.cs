@@ -29,9 +29,6 @@ namespace Algorithms.API.Controllers
         public async Task<ActionResult> calculateSequence([FromBody] DataSet unsortedList)
         {
             _mqService.SendMessage(unsortedList.values);
-
-            DataSetResponse dataSetResponse = _algorithmsImplementation.getDataSetResponseFromAlgorythm(_algorithmsImplementation.bubbleSort, unsortedList);
-
             return Ok("Message send");
         }
 
