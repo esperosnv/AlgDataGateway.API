@@ -81,7 +81,7 @@ namespace Algorithms.API.Services
             return elements;
         }
 
-        public DataSetResponse getDataSetResponseFromAlgorythm(Func<DataSet, List<int>> sortedAlgorythm, DataSet listForSorting)
+        public async Task<DataSetResponse> getDataSetResponseFromAlgorythm(Func<DataSet, List<int>> sortedAlgorythm, DataSet listForSorting)
         {
             Stopwatch sw = new Stopwatch();
             sw.Start();

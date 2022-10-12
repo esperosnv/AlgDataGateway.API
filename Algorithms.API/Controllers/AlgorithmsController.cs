@@ -28,7 +28,7 @@ namespace Algorithms.API.Controllers
         [HttpPost("Sequence")]
         public async Task<ActionResult> calculateSequence([FromBody] DataSet unsortedList)
         {
-            _mqService.SendMessage(unsortedList.values);
+            await _mqService.SendMessage(unsortedList.values);
             return Ok("Message send");
         }
 
@@ -40,7 +40,7 @@ namespace Algorithms.API.Controllers
         [HttpPost("BubbleSort")]
         public async Task<ActionResult<DataSetResponse>> sortingByBubbleSortAlgorithm([FromBody] DataSet unsortedList)
         {
-            DataSetResponse dataSetResponse = _algorithmsImplementation.getDataSetResponseFromAlgorythm(_algorithmsImplementation.bubbleSort, unsortedList);
+            DataSetResponse dataSetResponse = await _algorithmsImplementation.getDataSetResponseFromAlgorythm(_algorithmsImplementation.bubbleSort, unsortedList);
             return Ok(dataSetResponse);
         }
 
@@ -51,28 +51,28 @@ namespace Algorithms.API.Controllers
         [HttpPost("InsertionSort")]
         public async Task<ActionResult<DataSetResponse>> sortingByInsertionSortAlgorithm([FromBody] DataSet unsortedList)
         {
-            DataSetResponse dataSetResponse = _algorithmsImplementation.getDataSetResponseFromAlgorythm(_algorithmsImplementation.insertionSort, unsortedList);
+            DataSetResponse dataSetResponse = await _algorithmsImplementation.getDataSetResponseFromAlgorythm(_algorithmsImplementation.insertionSort, unsortedList);
             return Ok(dataSetResponse);
         }
 
         [HttpPost("MergeSort")]
         public async Task<ActionResult<DataSetResponse>> sortingByMergeSortAlgorithm([FromBody] DataSet unsortedList)
         {
-            DataSetResponse dataSetResponse = _algorithmsImplementation.getDataSetResponseFromAlgorythm(_algorithmsImplementation.mergeSort, unsortedList);
+            DataSetResponse dataSetResponse = await _algorithmsImplementation.getDataSetResponseFromAlgorythm(_algorithmsImplementation.mergeSort, unsortedList);
             return Ok(dataSetResponse);
         }
 
         [HttpPost("QuickSort")]
         public async Task<ActionResult<DataSetResponse>> sortingByQuickSortAlgorithm([FromBody] DataSet unsortedList)
         {
-            DataSetResponse dataSetResponse = _algorithmsImplementation.getDataSetResponseFromAlgorythm(_algorithmsImplementation.mergeSort, unsortedList);
+            DataSetResponse dataSetResponse = await _algorithmsImplementation.getDataSetResponseFromAlgorythm(_algorithmsImplementation.mergeSort, unsortedList);
             return Ok(dataSetResponse);
         }
 
         [HttpPost("SelectionSort")]
         public async Task<ActionResult<DataSetResponse>> sortingBySelectionSortAlgorithm([FromBody] DataSet unsortedList)
         {
-            DataSetResponse dataSetResponse = _algorithmsImplementation.getDataSetResponseFromAlgorythm(_algorithmsImplementation.selectionSort, unsortedList);
+            DataSetResponse dataSetResponse = await _algorithmsImplementation.getDataSetResponseFromAlgorythm(_algorithmsImplementation.selectionSort, unsortedList);
             return Ok(dataSetResponse);
         }
 

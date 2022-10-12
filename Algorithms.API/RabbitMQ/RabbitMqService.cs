@@ -9,7 +9,7 @@ namespace Algorithms.API.RabbitMQ
     public class RabbitMqService : IRabbitMqService
 	{ 
 
-		public void SendMessage<T>(T message)
+		public Task SendMessage<T>(T message)
 		{
 			var factory = new ConnectionFactory() { HostName = "rabbitmq" };
 			using (var connection = factory.CreateConnection())
@@ -25,6 +25,7 @@ namespace Algorithms.API.RabbitMQ
 							   body: body);
 				Console.WriteLine($"AlgorithmAPI: Send message to HostedService: {json}");
 			}
+			return Task.CompletedTask;
 		}
 	}
 }

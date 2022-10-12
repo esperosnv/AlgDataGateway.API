@@ -28,13 +28,13 @@ namespace CalculationHostedService
             stoppingToken.ThrowIfCancellationRequested();
 
             var consumer = new EventingBasicConsumer(_channel);
-            consumer.Received += (ch, ea) =>
+            consumer.Received += async (ch, ea) =>
             {
                 var content = Encoding.UTF8.GetString(ea.Body.ToArray());
                 var sequence = JsonConvert.DeserializeObject<List<int>>(content);
                 Console.WriteLine($"HostedService: Received message from AlgorithmAPI {content}");
 
-                _producer.SendMessage(sequence);
+               await _producer.SendMessage(sequence);
             };
             _channel.BasicConsume(queue: _queueName, autoAck: true, consumer: consumer);
 

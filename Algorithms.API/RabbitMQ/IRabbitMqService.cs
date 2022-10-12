@@ -2,6 +2,6 @@
 {
     public interface IRabbitMqService
     {
-        void SendMessage<T>(T message);
+        Task SendMessage<T>(T message);
     }
 }

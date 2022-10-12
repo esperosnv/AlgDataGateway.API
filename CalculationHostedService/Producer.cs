@@ -7,12 +7,12 @@ namespace CalculationHostedService
 {
     public interface IProducer
     {
-        void SendMessage(List<int> unsortedList);
+        Task SendMessage(List<int> unsortedList);
     }
 
     public class Producer : IProducer
     {
-        public void SendMessage(List<int> unsortedList)
+        public Task SendMessage(List<int> unsortedList)
         {
             Thread.Sleep(5000);
             var factory = new ConnectionFactory() { HostName = "rabbitmq" };
@@ -33,6 +33,7 @@ namespace CalculationHostedService
                                body: body);
 
             }
+            return Task.CompletedTask;
         }
     }
 }

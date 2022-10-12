@@ -11,6 +11,6 @@ namespace Algorithms.API.Services
         List<int> selectionSort(DataSet listForSorting);
 
 
-        DataSetResponse getDataSetResponseFromAlgorythm(Func<DataSet, List<int>> sortedAlgorythm, DataSet listForSorting);
+        Task<DataSetResponse> getDataSetResponseFromAlgorythm(Func<DataSet, List<int>> sortedAlgorythm, DataSet listForSorting);
     }
 }

@@ -36,6 +36,12 @@ namespace Algorithms.API.RabbitMQ
 				var content = Encoding.UTF8.GetString(ea.Body.ToArray());
 				Console.WriteLine($"AlgorithmAPI: Received message from HostedService: {content}");
 				_channel.BasicAck(ea.DeliveryTag, false);
+
+
+
+
+
+
 			};
 
 			_channel.BasicConsume(_queueName, false, consumer);
