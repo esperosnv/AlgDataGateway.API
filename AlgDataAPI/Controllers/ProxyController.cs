@@ -23,6 +23,13 @@ namespace AlgDataAPI.Controllers
             return await ProxyTo($"http://algorithms.api/Algorithms/{algorithmName}", jsonString);
         }
 
+        [HttpPost("Sequence")]
+        public async Task<ActionResult<List<int>>> AlgorithmsSequence(DataSet listInt)
+        {
+            var jsonString = JsonConvert.SerializeObject(listInt);
+            return await ProxyTo($"http://algorithms.api/Algorithms/Sequence", jsonString);
+        }
+
         [HttpGet("{dataStructureName}")]
         public async Task<IActionResult> DataStructures([FromRoute] string dataStructureName)
             => await ProxyTo($"http://datastructure.api/DataStructures/{dataStructureName}");

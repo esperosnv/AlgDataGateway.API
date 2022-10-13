@@ -3,6 +3,7 @@ using System.Text;
 using System.Text.Json;
 using Newtonsoft.Json;
 using System.Diagnostics;
+using Azure.Storage.Queues;
 
 namespace Algorithms.API.RabbitMQ
 {
@@ -27,5 +28,15 @@ namespace Algorithms.API.RabbitMQ
 			}
 			return Task.CompletedTask;
 		}
-	}
+
+
+		public async Task SendMessageAzure<T>(T message)
+		{
+			var connectionString = "DefaultEndpointsProtocol=https;AccountName=ytvideo;AccountKey=MJQIvUu3y0zPXEntuYI6uYlBqxaQlyEefPSYaMU/Ee+A/I7cU+AfpCHcEXZeMUkhwVhPw+RFHjwc+AStl6y8WQ==;EndpointSuffix=core.windows.net";
+			var gueueName = "hostedlistener";
+            var queueClient = new QueueClient(connectionString, gueueName);
+            var json = JsonConvert.SerializeObject(message);
+            await queueClient.SendMessageAsync(json);
+        }
+    }
 }

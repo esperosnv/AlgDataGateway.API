@@ -28,7 +28,8 @@ namespace Algorithms.API.Controllers
         [HttpPost("Sequence")]
         public async Task<ActionResult> calculateSequence([FromBody] DataSet unsortedList)
         {
-            await _mqService.SendMessage(unsortedList.values);
+            // await _mqService.SendMessage(unsortedList.values);
+            await _mqService.SendMessageAzure(unsortedList.values);
             return Ok("Message send");
         }
 
